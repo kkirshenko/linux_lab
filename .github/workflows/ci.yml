@@ -42,7 +42,7 @@ jobs:
       - name: Run Ansible Lint
         uses: ansible/ansible-lint@v6
         with:
-          path: "ansible_iac/setup_env.yml"
+          args: ansible_iac/setup_env.yml
 
   compose-validate:
     runs-on: ubuntu-latest
@@ -67,5 +67,6 @@ jobs:
       - name: Validate K8s manifests
         run: |
           cd k8s
-          kubectl apply --dry-run=client -f deployment.yaml
-          kubectl apply --dry-run=client -f service.yaml
+          # Просто проверяем синтаксис YAML без подключения к кластеру
+          kubectl apply --dry-run=client --validate=false -f deployment.yaml
+          kubectl apply --dry-run=client --validate=false -f service.yaml

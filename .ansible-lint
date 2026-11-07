@@ -1,4 +1,4 @@
-  - yaml[empty-lines]
-  - yaml[truthy]
-  - fqcn[action-core]
-  - yaml[indentation]
+  - 'yaml[empty-lines]'
+  - 'yaml[truthy]'
+  - 'fqcn[action-core]'
+  - 'yaml[indentation]'
